@@ -9,7 +9,7 @@
     "socket.io": "^2.3.0"
   },
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "node src/index.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix web && npm run build --prefix web"
   },
   "devDependencies": {
