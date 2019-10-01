@@ -5,7 +5,7 @@ import { Operation, Value } from "slate";
 import io from "socket.io-client";
 import "./SyncingEditor.css";
 
-const socket = io("http://localhost:4000");
+const socket = io("/");
 
 interface Props {
   groupId: string;
@@ -18,7 +18,7 @@ export const SyncingEditor: React.FC<Props> = ({ groupId }) => {
   const remote = useRef(false);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/groups/${groupId}`)
+    fetch(`/groups/${groupId}`)
       .then(x => x.json())
       .then(data => {
         setValue(Value.fromJSON(data));
