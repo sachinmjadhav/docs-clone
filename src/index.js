@@ -12,7 +12,8 @@ let initialEditorValue = {
         nodes: [
           {
             object: "text",
-            text: "Hello, share the URL with your group to start contributing."
+            text:
+              "Hello, share the URL with your group to start contributing."
           }
         ]
       }
@@ -31,7 +32,10 @@ io.on("connection", function(socket) {
 
 app.use(
   cors({
-    origin: "https://google-docs-clone.herokuapp.com/"
+    origin: [
+      "https://google-docs-clone.herokuapp.com/",
+      "http://localhost:3000"
+    ]
   })
 );
 
