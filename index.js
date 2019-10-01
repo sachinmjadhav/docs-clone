@@ -1,11 +1,10 @@
 const express = require("express");
 const app = express();
-const http = require("http").createServer(app);
+const http = require("http").Server(app);
 const io = require("socket.io")(http);
 const cors = require("cors");
 
-
-let initialEditorValue = {
+let initialEditorValue = id => ({
   document: {
     nodes: [
       {
@@ -14,14 +13,13 @@ let initialEditorValue = {
         nodes: [
           {
             object: "text",
-            text:
-              "Hello, share the URL with your group to start contributing!"
+            text: `Hello, you're in group _${id}_`
           }
         ]
       }
     ]
   }
-};
+});
 
 const groupData = {};
 
@@ -44,7 +42,7 @@ app.use(
 app.get("/api/groups/:id", (req, res) => {
   const { id } = req.params;
   if (!(id in groupData)) {
-    groupData[id] = initialEditorValue;
+    groupData[id] = initialEditorValue(id);
   }
 
   res.send(groupData[id]);
@@ -54,6 +52,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("web/build"));
 }
 
-http.listen(process.env.PORT, () => {
+http.listen(process.env.PORT || 4000, () => {
   console.log("listening on port 4000");
 });

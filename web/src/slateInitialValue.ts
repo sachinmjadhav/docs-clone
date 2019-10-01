@@ -9,7 +9,7 @@ export const initialValue = Value.fromJSON({
         nodes: [
           {
             object: "text",
-            text: "Hello, share the URL with your group to start contributing!"
+            text: "Hello"
           }
         ]
       }

@@ -5,7 +5,7 @@ import { Operation, Value } from "slate";
 import io from "socket.io-client";
 import "./SyncingEditor.css";
 
-const socket = io("https://google-docs-clone.herokuapp.com/api");
+const socket = io("http://google-docs-clone.herokuapp.com");
 
 interface Props {
   groupId: string;
@@ -18,7 +18,7 @@ export const SyncingEditor: React.FC<Props> = ({ groupId }) => {
   const remote = useRef(false);
 
   useEffect(() => {
-    fetch(`https://google-docs-clone.herokuapp.com/api/groups/${groupId}`)
+    fetch(`http://google-docs-clone.herokuapp.com/api/groups/${groupId}`)
       .then(x => x.json())
       .then(data => {
         setValue(Value.fromJSON(data));
