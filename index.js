@@ -15,7 +15,7 @@ let initialEditorValue = {
           {
             object: "text",
             text:
-              "Hello, share the URL with your group to start contributing."
+              "Hello, share the URL with your group to start contributing!"
           }
         ]
       }
