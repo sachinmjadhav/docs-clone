@@ -35,13 +35,13 @@ io.on("connection", function(socket) {
 app.use(
   cors({
     origin: [
-      "https://google-docs-clone.herokuapp.com/",
+      "https://google-docs-clone.herokuapp.com",
       "http://localhost:3000"
     ]
   })
 );
 
-app.get("/groups/:id", (req, res) => {
+app.get("/api/groups/:id", (req, res) => {
   const { id } = req.params;
   if (!(id in groupData)) {
     groupData[id] = initialEditorValue;
