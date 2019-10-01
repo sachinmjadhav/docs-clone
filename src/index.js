@@ -3,7 +3,7 @@ const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 const cors = require("cors");
 
-let initilaEditorValue = {
+let initialEditorValue = {
   document: {
     nodes: [
       {
@@ -12,7 +12,7 @@ let initilaEditorValue = {
         nodes: [
           {
             object: "text",
-            text: "A line of text in a paragraph."
+            text: "Hello, share the URL with your group to start contributing."
           }
         ]
       }
@@ -38,12 +38,16 @@ app.use(
 app.get("/groups/:id", (req, res) => {
   const { id } = req.params;
   if (!(id in groupData)) {
-    groupData[id] = initilaEditorValue;
+    groupData[id] = initialEditorValue;
   }
 
   res.send(groupData[id]);
 });
 
-http.listen(4000, function() {
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("web/build"));
+}
+
+http.listen(process.env.NODE_ENV || 4000, () => {
   console.log("listening on *:4000");
 });
