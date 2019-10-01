@@ -39,7 +39,7 @@ app.use(
   })
 );
 
-app.get("/api/groups/:id", (req, res) => {
+app.get("/groups/:id", (req, res) => {
   const { id } = req.params;
   if (!(id in groupData)) {
     groupData[id] = initialEditorValue(id);

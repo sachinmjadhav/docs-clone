@@ -10,6 +10,7 @@
   },
   "scripts": {
     "start": "node index.js",
+    "dev": "nodemon index.js",
     "heroku-postbuild": "npm install --prefix web && npm run build --prefix web"
   },
   "devDependencies": {
