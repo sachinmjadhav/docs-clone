@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "nodemon src/index.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix web && npm run build --prefix web"
   },
   "devDependencies": {
     "nodemon": "^1.19.2"
