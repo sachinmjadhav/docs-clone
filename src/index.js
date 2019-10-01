@@ -49,5 +49,5 @@ if (process.env.NODE_ENV === "production") {
 }
 
 http.listen(process.env.NODE_ENV || 4000, () => {
-  console.log("listening on *:4000");
+  console.log("listening on port 4000");
 });
