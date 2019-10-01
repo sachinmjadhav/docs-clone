@@ -53,6 +53,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("web/build"));
 }
 
-http.listen(process.env.NODE_ENV || 4000, () => {
+http.listen(process.env.NODE_ENV, () => {
   console.log("listening on port 4000");
 });
