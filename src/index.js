@@ -31,7 +31,7 @@ io.on("connection", function(socket) {
 
 app.use(
   cors({
-    origin: "http://localhost:3000"
+    origin: "https://google-docs-clone.herokuapp.com/"
   })
 );
 
