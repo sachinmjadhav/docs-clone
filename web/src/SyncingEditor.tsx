@@ -18,7 +18,7 @@ export const SyncingEditor: React.FC<Props> = ({ groupId }) => {
   const remote = useRef(false);
 
   useEffect(() => {
-    fetch(`https://google-docs-clone.herokuapp.com/groups/${groupId}`)
+    fetch(`https://google-docs-clone.herokuapp.com/api/groups/${groupId}`)
       .then(x => x.json())
       .then(data => {
         setValue(Value.fromJSON(data));
