@@ -7,7 +7,6 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Route
         path="/"
-        exact
         render={() => {
           return <Redirect to={`/group/${Date.now()}`} />;
         }}
