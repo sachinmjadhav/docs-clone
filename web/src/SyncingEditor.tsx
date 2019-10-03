@@ -75,7 +75,7 @@ export const SyncingEditor: React.FC<Props> = ({ groupId }) => {
         style={{
           backgroundColor: "#f8f8f8",
           width: 800,
-          maxWidth: 800,
+          maxWidth: "80vw",
           minHeight: 150,
           padding: 10
         }}
