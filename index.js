@@ -3,6 +3,7 @@ const app = express();
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
 const cors = require("cors");
+const path = require("path");
 
 let initialEditorValue = id => ({
   document: {
@@ -50,6 +51,10 @@ app.get("/api/groups/:id", (req, res) => {
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("web/build"));
+
+  app.get("*", (_req, res) => {
+    res.sendFile(path.resolve(__dirname, "web", "build", "index.html"));
+  });
 }
 
 http.listen(process.env.PORT || 4000, () => {
