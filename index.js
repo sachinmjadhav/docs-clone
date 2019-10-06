@@ -31,14 +31,7 @@ io.on("connection", function(socket) {
   });
 });
 
-app.use(
-  cors({
-    origin: [
-      "https://google-docs-clone.herokuapp.com/*",
-      "http://localhost:3000"
-    ]
-  })
-);
+app.use(cors());
 
 app.get("/api/groups/:id", (req, res) => {
   const { id } = req.params;
